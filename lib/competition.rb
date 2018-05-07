@@ -9,7 +9,7 @@ class Tracker::Competition
   end
 
   def self.list
-    # will list Competition instances
+    # will list Competition instances from @@all
     comp_1 = self.new
     comp_1.name = "TrackML Particle Tracking Challenge"
     comp_1.description = "High Energy Physics particle tracking in CERN detectors"
@@ -28,7 +28,6 @@ class Tracker::Competition
     comp_2.url = "https://www.kaggle.com/c/avito-demand-prediction"
     comp_2.time_left = "2 months to go"
 
-    #list = [comp_1, comp_2]
     self.all.each do |competition|
       self.competition_pretty_print(competition)
     end
