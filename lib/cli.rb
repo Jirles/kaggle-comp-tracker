@@ -9,24 +9,13 @@ module Tracker
       menu
     end
 
-    def list_competitions(limit=5, status="all")
+    def list_competitions(limit=10, status="all")
       # competitions hard-coded for now
       # limit will eventually control the number of entries seen
       # if status = 'all' is invoked as true it will list all competitions
       # set to "a" it will only pull Competiton instances marked as active
       # set to 'c' it will only pull instances marked as completed
-      puts <<-DOC
-        1. TrackML Particle Tracking Challenge
-          - High Energy Physics particle tracking in CERN detectors
-          - $25,000
-          - 105 Teams
-          - Featured
-        2. Avito Demand Prediction Challenge
-          - Predict demand for an online classified ad
-          - $25,000
-          - 559 Teams
-          - Featured
-      DOC
+      Tracker::Competition.list(limit, status)
     end
 
     def menu
@@ -43,11 +32,9 @@ module Tracker
         when "l"
           list_competitions
         when "a"
-          #list_competitions(status='a')
-          puts "Here are the active competitions"
+          list_competitions(limit=10, status="a")
         when "c"
-          #list_competitions(status='c')
-          puts "Here are past competitions"
+          list_competitions(limit=10, status="c")
         when "q"
           break
         else
