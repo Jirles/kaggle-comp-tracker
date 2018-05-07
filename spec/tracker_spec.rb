@@ -1,6 +1,6 @@
-RSpec.describe Kaggle::Comp::Tracker do
+RSpec.describe Tracker do
   it "has a version number" do
-    expect(Kaggle::Comp::Tracker::VERSION).not_to be nil
+    expect(Tracker::VERSION).not_to be nil
   end
 
   it "does something useful" do
