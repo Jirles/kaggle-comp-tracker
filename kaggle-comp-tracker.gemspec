@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "kaggle/comp/tracker/version"
+require "tracker.rb"
 
 Gem::Specification.new do |spec|
   spec.name          = "kaggle-comp-tracker"
-  spec.version       = Kaggle::Comp::Tracker::VERSION
+  spec.version       = Tracker::VERSION
   spec.authors       = ["Jirles"]
   spec.email         = ["emily.jirles@gmail.com"]
 

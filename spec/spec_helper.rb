@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "kaggle/comp/tracker"
+require "tracker_spec.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,9 +1,14 @@
-require "kaggle/comp/tracker/version"
+require "version.rb"
 
-module Kaggle
-  module Comp
-    module Tracker
+module Tracker
       # Your code goes here...
-    end
-  end
+
 end
+
+# Competiton class
+
+# Category class
+
+# Prize
+
+# Team class (maybe)
