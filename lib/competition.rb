@@ -1,6 +1,7 @@
 class Tracker::Competition
 
   attr_accessor :name, :prize, :team_count, :category, :status
+  @@all = []
 
   def self.list(limit=10, status="all")
     # will list Competition instances
@@ -33,13 +34,17 @@ class Tracker::Competition
       comp_2.category = "Featured"
       comp_2.status = "active"
 
-      puts[comp_1, comp_2]
+      list = [comp_1, comp_2]
     when "a"
       puts "Here's some active competitions"
     when "c"
       puts "Here's some completed competitions"
     end
 
+  end
+
+  def self.all
+    @@all 
   end
 
 

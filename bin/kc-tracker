@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
-require "./lib/tracker"
+# require "./lib/tracker"
+require "bundler/setup"
+require "tracker"
 
 Tracker::TrackerCLI.new.call
