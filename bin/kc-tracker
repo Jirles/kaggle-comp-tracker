@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
+require "./lib/tracker"
 
-puts "Hello world"
+Tracker::TrackerCLI.new.call

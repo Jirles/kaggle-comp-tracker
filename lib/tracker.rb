@@ -1,9 +1,8 @@
-require "version.rb"
+require_relative "./version"
+require_relative "./cli"
 
-module Tracker
-      # Your code goes here...
 
-end
+# user interface (TrackerCLI)
 
 # Competiton class
 
