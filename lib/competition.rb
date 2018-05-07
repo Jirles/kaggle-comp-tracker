@@ -8,61 +8,39 @@ class Tracker::Competition
     @@all << self
   end
 
-  def self.list(limit=10, status="all")
+  def self.list
     # will list Competition instances
-    case  status
-    when "all"
-      #self.all
-      #puts <<-DOC
-      #  1. TrackML Particle Tracking Challenge
-      #    - High Energy Physics particle tracking in CERN detectors
-      #    - $25,000
-      #    - 105 Teams
-      #    - Featured
-      #  2. Avito Demand Prediction Challenge
-      #    - Predict demand for an online classified ad
-      #    - $25,000
-      #    - 559 Teams
-      #    - Featured
-      #DOC
-      comp_1 = self.new
-      comp_1.name = "TrackML Particle Tracking Challenge"
-      comp_1.description = "High Energy Physics particle tracking in CERN detectors"
-      comp_1.prize = 25000
-      comp_1.total_teams = 105
-      comp_1.category = "Featured"
-      comp_1.url = "https://www.kaggle.com/c/trackml-particle-identification"
-      comp_1.time_left = "3 months to go"
+    comp_1 = self.new
+    comp_1.name = "TrackML Particle Tracking Challenge"
+    comp_1.description = "High Energy Physics particle tracking in CERN detectors"
+    comp_1.prize = 25000
+    comp_1.total_teams = 105
+    comp_1.category = "Featured"
+    comp_1.url = "https://www.kaggle.com/c/trackml-particle-identification"
+    comp_1.time_left = "3 months to go"
 
-      comp_2 = self.new
-      comp_2.name = "Avito Demand Prediction Challenge"
-      comp_2.description = "Predict demand for an online classified ad"
-      comp_2.prize = 25000
-      comp_2.total_teams = 559
-      comp_2.category = "Featured"
-      comp_2.url = "https://www.kaggle.com/c/avito-demand-prediction"
-      comp_2.time_left = "2 months to go"
+    comp_2 = self.new
+    comp_2.name = "Avito Demand Prediction Challenge"
+    comp_2.description = "Predict demand for an online classified ad"
+    comp_2.prize = 25000
+    comp_2.total_teams = 559
+    comp_2.category = "Featured"
+    comp_2.url = "https://www.kaggle.com/c/avito-demand-prediction"
+    comp_2.time_left = "2 months to go"
 
-      #list = [comp_1, comp_2]
-      self.all.each do |competition|
-        self.pretty_print(competition)
-      end
-      #self.all
-    when "a"
-      puts "Here's some active competitions"
-    when "c"
-      puts "Here's some completed competitions"
+    #list = [comp_1, comp_2]
+    self.all.each do |competition|
+      self.competition_pretty_print(competition)
     end
-
+    puts "* * * * * * * * *"
   end
 
   def self.all
     @@all
   end
 
-  def self.pretty_print(instance)
+  def self.competition_pretty_print(instance)
     #takes in an instance of the Competition class and makes it pretty for the console
-
     puts <<-DOC
     Name: #{instance.name}
       - Description: #{instance.description}
