@@ -9,9 +9,9 @@ module Tracker
       menu
     end
 
-    def list_competitions(number=5, status="all")
+    def list_competitions(limit=5, status="all")
       # competitions hard-coded for now
-      # number will eventually control the number of entries seen
+      # limit will eventually control the number of entries seen
       # if status = 'all' is invoked as true it will list all competitions
       # set to "a" it will only pull Competiton instances marked as active
       # set to 'c' it will only pull instances marked as completed
@@ -39,16 +39,16 @@ module Tracker
         puts "'c' to see completed competitions, or"
         puts "'q' to quit."
         input = gets.chomp.downcase
-        case
-        when input == "l"
+        case input
+        when "l"
           list_competitions
-        when input == "a"
+        when "a"
           #list_competitions(status='a')
           puts "Here are the active competitions"
-        when input == 'c'
+        when "c"
           #list_competitions(status='c')
           puts "Here are past competitions"
-        when input == 'q'
+        when "q"
           break
         else
           puts "Invalid request."
