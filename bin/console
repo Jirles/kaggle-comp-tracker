@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "lib"
+require "tracker.rb"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -12,5 +12,3 @@ require "lib"
 
 require "irb"
 IRB.start(__FILE__)
-
-puts "hello world"
