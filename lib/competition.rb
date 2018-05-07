@@ -3,6 +3,10 @@ class Tracker::Competition
   attr_accessor :name, :prize, :team_count, :category, :status
   @@all = []
 
+  def initialize
+    @@all << self
+  end
+
   def self.list(limit=10, status="all")
     # will list Competition instances
     case  status
@@ -22,6 +26,7 @@ class Tracker::Competition
       #DOC
       comp_1 = self.new
       comp_1.name = "TrackML Particle Tracking Challenge"
+      comp_1.description = "High Energy Physics particle tracking in CERN detectors"
       comp_1.prize = 25000
       comp_1.team_count = 105
       comp_1.category = "Featured"
@@ -29,12 +34,17 @@ class Tracker::Competition
 
       comp_2 = self.new
       comp_2.name = "Avito Demand Prediction Challenge"
+      comp_2.description = "Predict demand for an online classified ad"
       comp_2.prize = 25000
       comp_2.team_count = 559
       comp_2.category = "Featured"
       comp_2.status = "active"
 
-      list = [comp_1, comp_2]
+      #list = [comp_1, comp_2]
+      self.all.each do |competition|
+        self.pretty_print(competition)
+      end
+      #self.all
     when "a"
       puts "Here's some active competitions"
     when "c"
@@ -44,8 +54,19 @@ class Tracker::Competition
   end
 
   def self.all
-    @@all 
+    @@all
   end
 
+  def self.pretty_print(instance)
+    #takes in an instance of the Competition class and makes it pretty for the console
+    puts <<-DOC
+    Name: #{instance.name}
+      - Description: #{instance.description}
+      - Prize: $#{instance.prize}
+      - Teams: #{instance.team_count}
+      - Category: #{instance.category}
+    - - - - - - - - - - -
+  DOC
 
+  end
 end
