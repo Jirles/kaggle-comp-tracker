@@ -7,6 +7,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.3)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.6)
+    multi_xml (0.6.0)
     rake (10.5.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -27,6 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
+  httparty (~> 0.13.7)
   kaggle-comp-tracker!
   rake (~> 10.0)
   rspec (~> 3.0)
