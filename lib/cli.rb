@@ -67,6 +67,8 @@ module Tracker
               recruitment = Tracker::ProjectType.new("Recruitment")
               recruitment.competitions = [Tracker::Competition.new("Let's learn something")]
               Tracker::ProjectType.filter
+            elsif input == 'm'
+              next
             else
               puts "Invalid entry."
             end
