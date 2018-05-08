@@ -13,7 +13,7 @@ class Tracker::Competition
     comp_1 = self.new
     comp_1.name = "TrackML Particle Tracking Challenge"
     comp_1.description = "High Energy Physics particle tracking in CERN detectors"
-    comp_1.prize = 25000
+    comp_1.prize.type = "Cash"
     comp_1.total_teams = 105
     comp_1.category = "Featured"
     comp_1.url = "https://www.kaggle.com/c/trackml-particle-identification"
@@ -22,7 +22,7 @@ class Tracker::Competition
     comp_2 = self.new
     comp_2.name = "Avito Demand Prediction Challenge"
     comp_2.description = "Predict demand for an online classified ad"
-    comp_2.prize = 25000
+    comp_2.prize.type = "Cash"
     comp_2.total_teams = 559
     comp_2.category = "Featured"
     comp_2.url = "https://www.kaggle.com/c/avito-demand-prediction"
@@ -43,10 +43,8 @@ class Tracker::Competition
     puts <<-DOC
     Name: #{instance.name}
       - Description: #{instance.description}
-      - Prize: $#{instance.prize}
-      - Teams: #{instance.total_teams}
+      - Prize: $#{instance.prize.type}
       - Time Left: #{instance.time_left}
-      - Category: #{instance.category}
     - - - - - - - - - - -
     DOC
 
