@@ -10,7 +10,7 @@ class Tracker::Prize
   def initialize(name)
     @name = name
     @description = description
-    @@all << self 
+    @@all << self
   end
 
   def add_amounts(amounts)
@@ -18,10 +18,13 @@ class Tracker::Prize
     @amounts = amounts
   end
 
-  def print_cash_prizes
+  def print_amounts
     puts "First prize: $#{amounts[:first]}"
     puts "Second prize: $#{amounts[:second]}"
     puts "Third prize: $#{amounts[:third]}"
   end
 
+  def self.all
+    @@all
+  end
 end
