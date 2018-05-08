@@ -4,8 +4,11 @@ module FilterBy
     all.each do |type|
       puts type.name
       puts "----------"
-      category.competitions each do |competition|
-        competition.print_truncated_details
+      type.competitions each do |competition|
+        competition.name
+        #if type.name == "Cash"
+        #  puts competition.prize.total_cash
+        # end
       end
     end
     puts "* * * * * * * * *"

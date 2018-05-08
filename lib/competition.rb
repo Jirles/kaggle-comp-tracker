@@ -3,7 +3,8 @@ class Tracker::Competition
   attr_accessor :name, :prize, :total_teams, :project_type, :top_five_teams, :description, :url, :time_left, :rules
   @@all = []
 
-  def initialize
+  def initialize(name)
+    @name = name 
     @top_five_teams = []
     @@all << self
   end

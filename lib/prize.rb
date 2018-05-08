@@ -2,7 +2,7 @@ require 'modules/filterable'
 
 class Tracker::Prize
 
-  attr_accessor :amounts, :description
+  attr_accessor :amounts, :description, :competitions
   extend FilterBy
 
   @@all = []
@@ -11,6 +11,7 @@ class Tracker::Prize
     @name = name
     @description = description
     @@all << self
+    @competitions = []
   end
 
   def add_amounts(amounts)

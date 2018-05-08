@@ -18,6 +18,20 @@ module Tracker
       Tracker::Competition.list
     end
 
+    def display_prizes_and_projects
+      puts <<-DOC
+      PRIZES      PROJECT TYPE
+      ------      ------------
+      Cash        Getting Started
+      Knowledge   Playground
+      Kudos       Recruitment
+      Swag        Featured
+                  Research
+                  Masters
+      * * * * * * * * *
+      DOC
+    end
+
     def menu
       puts "What are you looking for?"
       input = nil
@@ -35,21 +49,19 @@ module Tracker
           display_prizes_and_projects
           input = nil
           while input != 'm'
-            puts "Enter 'prize' to filter by prize,
-            'project' to filter by project, or 'm' to return to the main menu."
+            puts "Enter 'prize' to filter by prize, 'project' to filter by project, or 'm' to return to the main menu."
             input = gets.chomp.downcase
             if input == 'prize'
               cash = Tracker::Prize.new("Cash")
-              cash.competitions = ["Some Machine Learning Thing", "All of the Data"]
+
+              cash.competitions = [Tracker::Competition.new("Some Machine Learning Thing"), Tracker::Competition.new("All of the Data")]
               kudos = Tracker::Prize.new("Kudos")
-              kudos.competitions = ["Identify some objects", "Using Pandas", "R for Spatial Stuff"]
+              kudos.competitions = [Tracker::Competition.new("Identify some objects"), Tracker::Competition.new("Using Pandas")]
               knowledge = Tracker::Prize.new("Knowledge")
-              knowledge.competitions = ["Let's learn something"]
-              if
-              elsif
-              else
+              knowledge.competitions = [Tracker::Competition.new("Let's learn something")]
+              Tracker::Prize.filter
             elsif input == 'project'
-              Tracker::ProjectType
+              next
             else
               puts "Invalid entry."
             end
@@ -63,20 +75,6 @@ module Tracker
         end
       end
     end
-  end
-
-  def display_prizes_and_projects
-    puts <<-DOC
-    PRIZES      PROJECT TYPE
-    ------      ------------
-    Cash        Getting Started
-    Knowledge   Playground
-    Kudos       Recruitment
-    Swag        Featured
-                Research
-                Masters
-    * * * * * * * * *
-    DOC
   end
 
 end
