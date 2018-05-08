@@ -2,7 +2,7 @@ require 'modules/filterable'
 
 class Tracker::Prize
 
-  attr_accessor :amounts, :description, :competitions
+  attr_accessor :total_cash, :description, :competitions, :name
   extend FilterBy
 
   @@all = []
@@ -14,18 +14,39 @@ class Tracker::Prize
     @competitions = []
   end
 
-  def add_amounts(amounts)
-    #expecting a hash from Scraper, with first, second, third
-    @amounts = amounts
-  end
-
-  def print_amounts
-    puts "First prize: $#{amounts[:first]}"
-    puts "Second prize: $#{amounts[:second]}"
-    puts "Third prize: $#{amounts[:third]}"
-  end
-
   def self.all
     @@all
+  end
+
+  def self.filter
+    self.all.each do |prize|
+      puts ''
+      puts prize.name.upcase
+      puts "----------"
+      prize.competitions.each do |competition|
+        puts competition.name
+        #if type.name == "Cash"
+        #  puts competition.prize.total_cash
+        # end
+      end
+    end
+    puts "* * * * * * * * *"
+  end
+
+  def self.find_by_name(name)
+    #helper function for find/create by name
+    self.all.detect{|x| x.name == name}
+  end
+
+  def self.find_or_create_by_name(name)
+    if find_by_name(name)
+      find_by_name(name)
+    else
+      self.new(name)
+    end
+  end
+
+  def self.count
+    self.all.count
   end
 end
