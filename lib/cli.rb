@@ -24,23 +24,30 @@ module Tracker
       while input != 'q'
         puts "Please enter:"
         puts "'l' to list all active Kaggle competitions"
-        puts "'p' to list active Kaggle competitions according the prize on offer,"
-        puts "'c' to list active Kaggle competitions according to category,"
-        puts "'d' to list active Kaggle competitions according to their deadlines,"
-        puts "'t' to list a particuarly competition's top five teams and their scores, or"
+        puts "'f' to filter competitions according to prizes or project type,"
+        puts "'c' to look into a particular competition, or"
         puts "'q' to quit."
         input = gets.chomp.downcase
         case input
         when "l"
           list_competitions
-        when "p"
-          puts "this will be a list accrd to prize"
+        when "f"
+          puts <<-DOC
+          PRIZES      PROJECT TYPE
+          ------      ------------
+          Cash        Getting Started
+          Knowledge   Playground
+          Kudos       Recruitment
+          Swag        Featured
+                      Research
+                      Masters
+          * * * * * * * * *
+          Enter 'prize' to filter by prize
+          or 'project' to filter by project.
+          DOC
+          filter = gets.chomp.downcase 
         when "c"
-          puts "this will be a list accrd to category"
-        when "d"
-          puts "this will be a list accrd to deadline"
-        when "t"
-          puts "this will begin the top-five submenu"
+          puts "choose a particular competition"
         when "q"
           break
         else

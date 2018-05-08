@@ -1,11 +1,11 @@
 module FilterBy
 
-  def self.filter_by_type
+  def self.filter
     all.each do |type|
       puts type.name
       puts "----------"
       category.competitions each do |competition|
-        competition.print_details
+        competition.print_truncated_details
       end
     end
     puts "* * * * * * * * *"
@@ -22,6 +22,10 @@ module FilterBy
     else
       self.new(name)
     end
+  end
+
+  def self.count
+    self.all.count
   end
 
 end
