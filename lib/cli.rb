@@ -18,6 +18,14 @@ module Tracker
       Tracker::Competition.list
     end
 
+    def display_main_menu
+      puts "Please enter:"
+      puts "'l' to list all active Kaggle competitions"
+      puts "'f' to filter competitions according to prizes or project type,"
+      puts "'c' to look into a particular competition, or"
+      puts "'q' to quit."
+    end 
+
     def display_prizes_and_projects
       puts <<-DOC
       PRIZES      PROJECT TYPE
@@ -36,11 +44,7 @@ module Tracker
       puts "What are you looking for?"
       input = nil
       while input != 'q'
-        puts "Please enter:"
-        puts "'l' to list all active Kaggle competitions"
-        puts "'f' to filter competitions according to prizes or project type,"
-        puts "'c' to look into a particular competition, or"
-        puts "'q' to quit."
+        display_main_menu
         input = gets.chomp.downcase
         case input
         when "l"
