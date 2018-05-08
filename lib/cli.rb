@@ -32,24 +32,22 @@ module Tracker
         when "l"
           list_competitions
         when "f"
-          puts <<-DOC
-          PRIZES      PROJECT TYPE
-          ------      ------------
-          Cash        Getting Started
-          Knowledge   Playground
-          Kudos       Recruitment
-          Swag        Featured
-                      Research
-                      Masters
-          * * * * * * * * *
-          DOC
+          display_prizes_and_projects
           input = nil
           while input != 'm'
             puts "Enter 'prize' to filter by prize,
             'project' to filter by project, or 'm' to return to the main menu."
             input = gets.chomp.downcase
             if input == 'prize'
-              Tracker::Prize
+              cash = Tracker::Prize.new("Cash")
+              cash.competitions = ["Some Machine Learning Thing", "All of the Data"]
+              kudos = Tracker::Prize.new("Kudos")
+              kudos.competitions = ["Identify some objects", "Using Pandas", "R for Spatial Stuff"]
+              knowledge = Tracker::Prize.new("Knowledge")
+              knowledge.competitions = ["Let's learn something"]
+              if
+              elsif
+              else
             elsif input == 'project'
               Tracker::ProjectType
             else
@@ -65,6 +63,20 @@ module Tracker
         end
       end
     end
+  end
+
+  def display_prizes_and_projects
+    puts <<-DOC
+    PRIZES      PROJECT TYPE
+    ------      ------------
+    Cash        Getting Started
+    Knowledge   Playground
+    Kudos       Recruitment
+    Swag        Featured
+                Research
+                Masters
+    * * * * * * * * *
+    DOC
   end
 
 end
