@@ -46,7 +46,4 @@ class Tracker::Prize
     end
   end
 
-  def self.count
-    self.all.count
-  end
 end
