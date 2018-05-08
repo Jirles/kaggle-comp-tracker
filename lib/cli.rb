@@ -42,10 +42,20 @@ module Tracker
                       Research
                       Masters
           * * * * * * * * *
-          Enter 'prize' to filter by prize
-          or 'project' to filter by project.
           DOC
-          filter = gets.chomp.downcase 
+          input = nil
+          while input != 'm'
+            puts "Enter 'prize' to filter by prize,
+            'project' to filter by project, or 'm' to return to the main menu."
+            input = gets.chomp.downcase
+            if input == 'prize'
+              Tracker::Prize
+            elsif input == 'project'
+              Tracker::ProjectType
+            else
+              puts "Invalid entry."
+            end
+          end
         when "c"
           puts "choose a particular competition"
         when "q"
