@@ -1,3 +1,6 @@
 require_relative "./version"
 require_relative "./cli"
 require_relative "./competition"
+require_relative "./prize"
+require_relative "./category"
+require_relative "./modules/filterable"
