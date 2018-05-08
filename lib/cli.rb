@@ -53,7 +53,6 @@ module Tracker
             input = gets.chomp.downcase
             if input == 'prize'
               cash = Tracker::Prize.new("Cash")
-
               cash.competitions = [Tracker::Competition.new("Some Machine Learning Thing"), Tracker::Competition.new("All of the Data")]
               kudos = Tracker::Prize.new("Kudos")
               kudos.competitions = [Tracker::Competition.new("Identify some objects"), Tracker::Competition.new("Using Pandas")]
@@ -61,7 +60,13 @@ module Tracker
               knowledge.competitions = [Tracker::Competition.new("Let's learn something")]
               Tracker::Prize.filter
             elsif input == 'project'
-              next
+              research = Tracker::ProjectType.new("Research")
+              research.competitions = [Tracker::Competition.new("Some Machine Learning Thing"), Tracker::Competition.new("All of the Data")]
+              featured = Tracker::ProjectType.new("Featured")
+              featured.competitions = [Tracker::Competition.new("Identify some objects"), Tracker::Competition.new("Using Pandas")]
+              recruitment = Tracker::ProjectType.new("Recruitment")
+              recruitment.competitions = [Tracker::Competition.new("Let's learn something")]
+              Tracker::ProjectType.filter
             else
               puts "Invalid entry."
             end
